@@ -1,20 +1,21 @@
+import React from "react";
 import "./styles.css";
-import Die from "./Components/Die"
+import Die from "./Components/Die";
+
 export default function App() {
+  const [dice, setDice] = React.useState(allNewDice());
+
+  function allNewDice() {
+    const numArray = [];
+    for (let i = 0; i < 10; i++) {
+      numArray.push(Math.floor(Math.random() * 6 + 1));
+    }
+    return numArray;
+  }
+  const diceElements = dice.map((item) => <Die value={item} />);
   return (
     <main className="App">
-      <div className="grid-container">
-        <Die value="1" />
-        <Die value="2" />
-        <Die value="3" />
-        <Die value="4" />
-        <Die value="5" />
-        <Die value="6" />
-        <Die value="1" />
-        <Die value="2" />
-        <Die value="3" />
-        <Die value="4" />
-      </div>
+      <div className="grid-container">{diceElements}</div>
     </main>
   );
 }
