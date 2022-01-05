@@ -18,10 +18,22 @@ export default function App() {
     return numArray;
   }
   function rollDice() {
-    setDice(allNewDice);
+    setDice(allNewDice());
+  }
+  function holdDice(id) {
+    setDice((oldDice) =>
+      oldDice.map((item) => {
+        return item.id === id ? { ...item, isHeld: !item.isHeld } : item;
+      })
+    );
   }
   const diceElements = dice.map((item) => (
-    <Die key={item.id} value={item.value} />
+    <Die
+      key={item.id}
+      value={item.value}
+      isHeld={item.isHeld}
+      holdDice={() => holdDice(item.id)}
+    />
   ));
   return (
     <main className="App">
