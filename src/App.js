@@ -12,10 +12,16 @@ export default function App() {
     }
     return numArray;
   }
+  function rollDice() {
+    setDice(allNewDice);
+  }
   const diceElements = dice.map((item) => <Die value={item} />);
   return (
     <main className="App">
       <div className="grid-container">{diceElements}</div>
+      <button onClick={rollDice} className="button-roll">
+        Roll
+      </button>
     </main>
   );
 }
