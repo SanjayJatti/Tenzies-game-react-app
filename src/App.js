@@ -1,10 +1,20 @@
 import "./styles.css";
-
+import Die from "./Components/Die"
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <main className="App">
+      <div className="grid-container">
+        <Die value="1" />
+        <Die value="2" />
+        <Die value="3" />
+        <Die value="4" />
+        <Die value="5" />
+        <Die value="6" />
+        <Die value="1" />
+        <Die value="2" />
+        <Die value="3" />
+        <Die value="4" />
+      </div>
+    </main>
   );
 }
